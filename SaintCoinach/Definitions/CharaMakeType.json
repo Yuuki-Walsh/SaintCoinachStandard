@@ -121,11 +121,15 @@
     {
       "index": 3291,
       "type": "repeat",
-      "count": 56,
+      "count": 7,
       "definition": {
-        "name": "FacialFeatureOption",
-        "converter": {
-          "type": "icon"
+        "type": "repeat",
+        "count": 8,
+        "definition": {
+          "name": "FacialFeatureOption",
+          "converter": {
+            "type": "icon"
+          }
         }
       }
     },

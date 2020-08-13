@@ -41,8 +41,11 @@ namespace SaintCoinach.IO {
                 if (value == _KeepInMemory)
                     return;
 
-                if (_DataStreams.Any(i => i.Value.TryGetTarget(out Stream t)))
-                    throw new InvalidOperationException();
+                if (_DataStreams.Any(i => i.Value.TryGetTarget(out Stream t))) {
+                    Console.WriteLine($"Failed to keep pack {Id} in memory.");
+                    return;
+                }
+
                 _DataStreams.Clear();
 
                 _KeepInMemory = value;
@@ -68,7 +71,7 @@ namespace SaintCoinach.IO {
 
             if (stream != null) return stream;
 
-            string baseName = String.Format(DatFileFormat, Id.TypeKey, Id.ExpansionKey, Id.Number, datFile);
+            string baseName = string.Format(DatFileFormat, Id.TypeKey, Id.ExpansionKey, Id.Number, datFile);
             string fullPath = Path.Combine(DataDirectory.FullName, Id.Expansion, baseName);
 
 
